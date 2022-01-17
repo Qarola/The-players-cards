@@ -30,6 +30,3 @@
 
 
 
-vvvvvvvvvvvvv
-mmmmmmmmm
-kkkkkkkkkkk

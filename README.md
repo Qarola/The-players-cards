@@ -28,6 +28,5 @@
 
 # the-players-cards
 
-kkkkkkkkkkk
-vvvvvvvvvvvvv
+
 mmmmmmmmm

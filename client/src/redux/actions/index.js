@@ -58,13 +58,6 @@ export function addPlayer({ name, status, ranking, avatar }) {
   };
 }
 
-/* 
-export function filterPlayerByStatus(payload) {
-  return {
-      type: "FILTER_PLAYER_BY_STATUS",
-      payload
-  }
-} */
 
 export function filterPlayerByStatus(status) {
   if (status === 'active' || 'inactive') {
@@ -89,18 +82,4 @@ export function filterPlayerByStatus(status) {
       payload: [],
     };
   } 
-}
-
-
-export function updateDataPlayer(id, data) {
-  return function(dispatch) {
-    const updateData = {id, data};
-    axios.put(`http://localhost:3001/update/${id}`, updateData)
-    .then((res) => {
-      dispatch({
-        type: "UPDATE_DATA_PLAYER",
-        payload: res.data,
-      })
-    })
-  }
 }

@@ -3,7 +3,6 @@ const initialState = {
   searchedPlayer: [],
   addPlayer: {},
   filterByStatus: [],
-  updatedPlayer: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -28,12 +27,6 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         addPlayer: action.payload,
       };
-    case "UPDATE_DATA_PLAYER":
-      return {
-        ...state,
-        updatedPlayer: action.payload,
-      };
-
     default:
       return state;
   }

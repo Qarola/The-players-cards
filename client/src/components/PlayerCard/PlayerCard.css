@@ -1,0 +1,84 @@
+.card__container {
+  display: flex;
+  flex-flow: row;
+  padding: 1rem 1rem;
+  border-radius: 10px;
+  background: #f2eaed;
+  box-shadow: 6px 6px 17px #a9a4a6, -6px -6px 17px #ffffff;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+  animation: scale 0.25s;
+  margin-top: 4rem;
+  transition-duration: 2s;
+}
+.card__container:hover {
+  background-color: #3872dd;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+}
+/*  flex-flow: column nowrap; --> posiciona verticalmente */
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.card__player-name {
+  margin-bottom: 55px;
+  text-align: center;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  margin-right: 2rem;
+}
+
+.card__details > * {
+  margin-top: 15px;
+}
+
+.card__details {
+  display: flex;
+  flex-flow: column-reverse; /* cambia la direccion de abajo hacia arriba */
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  border: 3rem;
+}
+
+.card__details:last-child {
+  margin-bottom: 15px;
+}
+
+.icon {
+  margin-left: 1rem;
+}
+
+.strong {
+  margin-left: 1rem;
+}
+
+.card__image {
+  border-radius: 200px;
+  border: solid 2px rgb(13, 172, 200);
+  background: url("../../img/clouds.jpg");
+}
+
+.value {
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  text-align: center;
+  width: 90%;
+  box-sizing: border-box;
+}

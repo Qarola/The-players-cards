@@ -1,3 +1,4 @@
+
 html {
   font-size: 14px;
 }
@@ -9,39 +10,21 @@ body {
   font-family: 'Spartan', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./img/mockup-graphic-small-unsplash.jpg')     /*,nordwood-themes-unsplash-1300.jpg */
+  background: url('./img/super-mario-bros.jpg')  
   no-repeat center center fixed;
+  background-size: cover; /* define cómo se va a mostrar la imagen a establecer en el fondo; */
+  
  
 
-}
-
-
+} 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* 
 
-
-@media screen and (max-width:1000px) { /*responsive*/
-  .lp {
-      height: 600px;
-  }
-  #info {
-      height: 100px;
-  }
-  .if {
-      height: 400px;
-  }
-  .welcome-btn {
-      height: 45px;
-  }
-  .link {
-      height: 400px;
-  }
-}
-
-@media screen and (max-width:800px){ /*responsive*/
+@media screen and (max-width:800px){ /*responsive
   .lp {
       height: 650px;
   }
@@ -59,7 +42,7 @@ code {
   }
 }
 
-@media screen and (max-width:600px){ /*responsive*/
+@media screen and (max-width:600px){ /*responsive
   .lp {
       height: 650px;
   }
@@ -79,7 +62,7 @@ code {
 }
 
 
-
+ */
 
 
 

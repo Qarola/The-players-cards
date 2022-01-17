@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export function getAllRecipes() {
+export function getAllPlayers() {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/home")
+      .get("http://localhost:3001/players")
 
       .then((res) => {
         console.log(res);
         dispatch({
-          type: "GET_ALL_RECIPES",
+          type: "GET_ALL_PLAYERS",
           payload: res.data,
         });
       })
@@ -18,14 +18,14 @@ export function getAllRecipes() {
   };
 }
 
-export function searchRecipes(recipe) {
-  if (recipe !== "") {
+export function searchPlayer(name) {
+  if (name !== "") {
     return function (dispatch) {
       axios
-        .get(`http://localhost:3001/recipes?name=${recipe}`)
+        .get(`http://localhost:3001/players?name=${name}`)
         .then((res) =>
           dispatch({
-            type: "SEARCH_RECIPES",
+            type: "SEARCH_PLAYER",
             payload: res.data,
           })
         )
@@ -35,19 +35,20 @@ export function searchRecipes(recipe) {
     };
   } else {
     return {
-      type: "SEARCH_RECIPES",
+      type: "SEARCH_PLAYER",
       payload: [],
     };
   }
 }
 
-export function getRecipeDetail(id) {
+
+export function addPlayer({ name, status, ranking, avatar }) {
   return function (dispatch) {
-    axios
-      .get(`http://localhost:3001/recipes/${id}`)
+    const Player = {  name, status, ranking, avatar };
+    axios.post("http://localhost:3001/add", Player)
       .then((res) =>
         dispatch({
-          type: "GET_RECIPE_DETAIL",
+          type: "ADD_PLAYER",
           payload: res.data,
         })
       )
@@ -57,43 +58,49 @@ export function getRecipeDetail(id) {
   };
 }
 
-export function addRecipe({ name, summary, healthScore, stepByStep, diets }) {
-  return function (dispatch) {
-    const Recipe = { name, summary, healthScore, stepByStep, diets };
-    axios
-      .post("http://localhost:3001/recipe", Recipe)
-      .then((res) =>
-        dispatch({
-          type: "ADD_RECIPE",
-          payload: res.data,
-        })
-      )
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-}
-
-export function getAllDiets() {
-  return function (dispatch) {
-    axios
-      .get("http://localhost:3001/types")
-      .then((res) =>
-        dispatch({
-          type: "GET_ALL_DIETS",
-          payload: res.data,
-        })
-      )
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-}
-
-
-export function filterRecipesByDiet(payload){
+/* 
+export function filterPlayerByStatus(payload) {
   return {
-      type: "FILTER_BY_DIET",
+      type: "FILTER_PLAYER_BY_STATUS",
       payload
+  }
+} */
+
+export function filterPlayerByStatus(status) {
+  if (status === 'active' || 'inactive') {
+    //console.log(status)
+    return function (dispatch) {
+      axios.get(`http://localhost:3001/byStatus?status=${status}`)
+        .then((res) => {
+         // console.log(res.data)
+          dispatch({
+            type: "FILTER_PLAYER_BY_STATUS",
+            payload: res.data,
+          })
+        }
+        )
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+   } else {
+    return {
+      type: "FILTER_PLAYER_BY_STATUS",
+      payload: [],
+    };
+  } 
+}
+
+
+export function updateDataPlayer(id, data) {
+  return function(dispatch) {
+    const updateData = {id, data};
+    axios.put(`http://localhost:3001/update/${id}`, updateData)
+    .then((res) => {
+      dispatch({
+        type: "UPDATE_DATA_PLAYER",
+        payload: res.data,
+      })
+    })
   }
 }

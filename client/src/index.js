@@ -6,15 +6,16 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store/index";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+//import "./stylesheets/App.scss";
+
 
 ReactDOM.render(
-  <div>
+  <div className="index">
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-    ,
   </div>,
   document.getElementById("root")
 );

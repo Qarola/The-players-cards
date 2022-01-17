@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Pagination.css";
 
-export default function Pagination({ allRecipes, page }) {
-  const totalPages = Math.ceil(allRecipes.length / 9); // se obtiene el total de páginas según el número de recipes
+export default function Pagination({ allPlayers, page }) {
+  const totalPages = Math.ceil(allPlayers.length / 10); // se obtiene el total de páginas según el número de recipes
 
   const totalPagesToArray = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -19,14 +19,14 @@ export default function Pagination({ allRecipes, page }) {
         <Link
           key="PREV"
           className="pag-link-left"
-          to={`/home?page=${parseInt(page) - 1}`}>
+          to={`/?page=${parseInt(page) - 1}`}>
           <button>Prev</button>
         </Link>
       ) : (
         ""
       )}
       {totalPagesToArray.map((p) => (
-        <Link key={p} className="pag-link-center" to={`/home?page=${p}`}>
+        <Link key={p} className="pag-link-center" to={`/?page=${p}`}>
           <button className={page === p ? "active" : ""}>{p}</button>
         </Link>
       ))}
@@ -34,7 +34,7 @@ export default function Pagination({ allRecipes, page }) {
         <Link
           key="NEXT"
           className="pag-link-right"
-          to={`/home?page=${parseInt(page) + 1}`}>
+          to={`/?page=${parseInt(page) + 1}`}>
           <button>Next</button>
         </Link>
       ) : (

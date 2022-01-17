@@ -1,0 +1,8 @@
+###
+GET http://localhost:3001/players
+
+###
+GET http://localhost:3001/players?name=an
+
+###
+GET http://localhost:3001/byStatus?status=inactive

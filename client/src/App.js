@@ -1,23 +1,23 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar.jsx";
-import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import About from "./components/About/About.jsx";
-import Recipes from "./components/Recipes/Recipes.jsx";
-import NewRecipes from "./components/NewRecipes/NewRecipes.jsx";
-import RecipeDetail from "./components/RecipeDetail/RecipeDetail.jsx";
+import Header from "./components/Header/Header.jsx";
+import Players from "./components/Players/Players.jsx";
+import CreatePlayer from "./components/CreatePlayer/CreatePlayer.jsx";
 import { Route } from "react-router-dom";
+//import "./stylesheets/App.scss";
 
 function App() {
-  const routes = ["/home", "/about", "/recipes/:id", "/add"];
+  const routes = ["/", "/about", "/add"];
   return (
+    <>
+      <Header />
     <div className="App">
-      <Route exact path="/" component={LandingPage} />
-      <Route path={routes} component={NavBar} />
-      <Route exact path={routes[0]} component={Recipes} />
+      <Route exact path={routes[0]} component={Players} />
       <Route path={routes[1]} component={About} />
-      <Route path={routes[2]} component={RecipeDetail} />
-      <Route path={routes[3]} component={NewRecipes} />
+      <Route path={routes[2]} component={CreatePlayer} />
     </div>
+    </>
+  
   );
 }
 

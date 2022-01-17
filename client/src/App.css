@@ -30,9 +30,9 @@
 }
  @media screen and (max-width:800px){
   .App {
-    width: 350px;
+    width: calc((100%-20) /2);
   }
-
+ }
 
 
 @keyframes App-logo-spin {

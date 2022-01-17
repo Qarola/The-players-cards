@@ -1,92 +1,193 @@
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require("./src/app.js");
-const { conn, Diet } = require("./src/db.js");
+const { conn, Player } = require("./src/db.js");
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   console.log("Connection with DB is correct");
-  server.listen(3001, () => {
+  server.listen(3001, async () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console
-    const glutenFree = Diet.create({
-      name: "Gluten Free",
-      description:
-        "Eliminating gluten means avoiding wheat, barley, rye, and other gluten-containing grains and foods made from them (or that may have been cross contaminated).",
+ //<<<<<<<<<<<<<<< DESCOMENTAR PARA CARGAR LA DB >>>>>>>>>>>>>>>>>>>>>>>>>>
+  /*const tom = await Player.create({
+      id: 1,
+      name: "tom",
+      status: "active",
+      ranking: 123,
+      avatar:
+        "https://gravatar.com/avatar/1813216c2d6569a56e6fd3ba3683a7d4?s=400&d=robohash&r=x",
     });
-    const ketogenic = Diet.create({
-      name: "Ketogenic",
-      description:
-        "The keto diet is based more on the ratio of fat, protein, and carbs in the diet rather than specific ingredients. Generally speaking, high fat, protein-rich foods are acceptable and high carbohydrate foods are not.",
+    const santi = await Player.create({
+      id: 2,
+      name: "santi",
+      status: "active",
+      ranking: 159,
+      avatar:
+        "https://gravatar.com/avatar/6b0013df0c40a9434a276c4b11d569c2?s=400&d=robohash&r=x",
     });
-    const vegetarian = Diet.create({
-      name: "Vegetarian",
-      description:
-        "No ingredients may contain meat or meat by-products, such as bones or gelatin.",
+    const joe = await Player.create({
+      id: 3,
+      name: "joe",
+      status: "active",
+      ranking: 214,
+      avatar:
+        "https://gravatar.com/avatar/3ce35acdc48e7959392e85b54fc30128?s=400&d=robohash&r=x",
     });
-    const lactoVegetarian = Diet.create({
-      name: "Lacto Ovo Vegetarian",
-      description:
-        "All ingredients must be vegetarian and none of the ingredients can be or contain egg.",
+    const chris = await Player.create({
+      id: 4,
+      name: "chris",
+      status: "active",
+      ranking: 156,
+      avatar:
+        "https://gravatar.com/avatar/96ca52e367496e41fb0a966e3c232f55?s=400&d=robohash&r=x",
     });
-    const ovoVegetarian = Diet.create({
-      name: "Dairy Free",
-      description:
-        "All ingredients must be vegetarian and none of the ingredients can be or contain dairy.",
+    const lau = await Player.create({
+      id: 5,
+      name: "lau",
+      status: "active",
+      ranking: 654,
+      avatar:
+        "https://gravatar.com/avatar/517ec5059edacbcb9f3aefc4fb4cd632?s=400&d=robohash&r=x",
     });
-    const vegan = Diet.create({
-      name: "Vegan",
-      description:
-        "No ingredients may contain meat or meat by-products, such as bones or gelatin, nor may they contain eggs, dairy, or honey.",
+    const moe = await Player.create({
+      id: 6,
+      name: "moe",
+      status: "inactive",
+      ranking: 124,
+      avatar:
+        "https://gravatar.com/avatar/3c53ceb21bb71a555a3b8738d2b23053?s=400&d=robohash&r=x",
     });
-    const pescetarian = Diet.create({
-      name: "Pescetarian",
-      description:
-        "Everything is allowed except meat and meat by-products - some pescetarians eat eggs and dairy, some do not.",
+    const mia = await Player.create({
+      id: 7,
+      name: "mia",
+      status: "inactive",
+      ranking: 741,
+      avatar:
+        "https://gravatar.com/avatar/cc6df2f260d11502befa6cc6e19d7de9?s=400&d=robohash&r=x",
     });
-    const paleo = Diet.create({
-      name: "Paleolithic",
-      description:
-        "Allowed ingredients include meat (especially grass fed), fish, eggs, vegetables, some oils (e.g. coconut and olive oil), and in smaller quantities, fruit, nuts, and sweet potatoes. We also allow honey and maple syrup (popular in Paleo desserts, but strict Paleo followers may disagree). Ingredients not allowed include legumes (e.g. beans and lentils), grains, dairy, refined sugar, and processed foods.",
+    const charlie = await Player.create({
+      id: 8,
+      name: "charlie",
+      status: "inactive",
+      ranking: 456,
+      avatar:
+        "https://gravatar.com/avatar/0eaab448f89171e4df0f67c45908d3d2?s=400&d=robohash&r=x",
     });
-    const primal = Diet.create({
-      name: "Primal",
-      description:
-        "Very similar to Paleo, except dairy is allowed - think raw and full fat milk, butter, ghee, etc.",
+    const eli = await Player.create({
+      id: 9,
+      name: "eli",
+      status: "inactive",
+      ranking: 111,
+      avatar:
+        "https://gravatar.com/avatar/4a2764ee2455253fb897cfe34683b364?s=400&d=robohash&r=x",
     });
-    const whole = Diet.create({
-      name: "Whole 30",
-      description:
-        "Allowed ingredients include meat, fish/seafood, eggs, vegetables, fresh fruit, coconut oil, olive oil, small amounts of dried fruit and nuts/seeds. Ingredients not allowed include added sweeteners (natural and artificial, except small amounts of fruit juice), dairy (except clarified butter or ghee), alcohol, grains, legumes (except green beans, sugar snap peas, and snow peas), and food additives, such as carrageenan, MSG, and sulfites.",
+    const carol = await Player.create({
+      id: 10,
+      name: "carol",
+      status: "active",
+      ranking: 987,
+      avatar:
+        "https://gravatar.com/avatar/7e3b9267a865513e49cb4381e947704b?s=400&d=robohash&r=x",
     });
-
+    const kate = await Player.create({
+      id: 11,
+      name: "kate",
+      status: "active",
+      ranking: 632,
+      avatar:
+        "https://gravatar.com/avatar/1d50ac8c5596334ad8e5d15db9de4005?s=400&d=robohash&r=x",
+    });
+    const beth = await Player.create({
+      id: 12,
+      name: "beth",
+      status: "active",
+      ranking: 563,
+      avatar:
+        "https://gravatar.com/avatar/afaa239a302bcc43efbe02b27c5d2c27?s=400&d=robohash&r=x",
+    });
+    const anne = await Player.create({
+      id: 13,
+      name: "anne",
+      status: "active",
+      ranking: 321,
+      avatar:
+        "https://gravatar.com/avatar/7909219fcd4412a7708ea47b0a60e033?s=400&d=robohash&r=x",
+    });
+    const mike = await Player.create({
+      id: 14,
+      name: "mike",
+      status: "active",
+      ranking: 412,
+      avatar:
+        "https://gravatar.com/avatar/381dc165ac0abf39b5aa42ff0af9a5b9?s=400&d=robohash&r=x",
+    });
+    const ant = await Player.create({
+      id: 15,
+      name: "ant",
+      status: "active",
+      ranking: 369,
+      avatar:
+        "https://gravatar.com/avatar/d491a39991e5d6d3e2f55aa918a7a7ae?s=400&d=robohash&r=x",
+    });
+    const zeus = await Player.create({
+      id: 16,
+      name: "zeus",
+      status: "active",
+      ranking: 852,
+      avatar:
+        "https://gravatar.com/avatar/04316479164d84175f72aece4c4d8e78?s=400&d=robohash&r=x",
+    });
+    const laus = await Player.create({
+      id: 17,
+      name: "laus",
+      status: "active",
+      ranking: 359,
+      avatar:
+        "https://gravatar.com/avatar/a6a2c2a096dad5dbcd10b8b44b2daceb?s=400&d=robohash&r=x",
+    });
+    const mint = await Player.create({
+      id: 18,
+      name: "mint",
+      status: "active",
+      ranking: 853,
+      avatar:
+        "https://gravatar.com/avatar/3ada5a68489bef4de52734ddf8be3a50?s=400&d=robohash&r=x",
+    });
+    const coke = await Player.create({
+      id: 19,
+      name: "coke",
+      status: "active",
+      ranking: 732,
+      avatar:
+        "https://gravatar.com/avatar/f22d6482649aaf6ef4bb135f81c88e01?s=400&d=robohash&r=x",
+    });
+    const lazy = await Player.create({
+      id: 20,
+      name: "lazi",
+      status: "inactive",
+      ranking: 325,
+      avatar:
+        "https://gravatar.com/avatar/4a8db2ce7d1743cc725a06326d5e038d?s=400&d=robohash&r=x",
+    });
     Promise.all([
-      glutenFree,
-      ketogenic,
-      vegetarian,
-      lactoVegetarian,
-      ovoVegetarian,
-      vegan,
-      pescetarian,
-      paleo,
-      primal,
-      whole,
-    ]).then((res) => console.log("Diets has been created"));
+      tom,
+      santi,
+      joe,
+      chris,
+      lau,
+      moe,
+      mia,
+      charlie,
+      eli,
+      carol,
+      kate,
+      beth,
+      anne,
+      mike,
+      ant,
+      zeus,
+      laus,
+      mint,
+      coke,
+      lazy,
+    ]).then((res) => console.log("Players has been created"));*/
   });
 });

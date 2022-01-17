@@ -1,7 +1,7 @@
 .about-ctn {
     width: 80%;
-    height: 30rem;
-    margin: 2.5rem auto;
+    height: 50rem;
+    margin: 3.5rem auto;
    /*  background-color: rgba(255, 251, 251, 0.8); */
     border-radius: 1rem;
     border: 0.1rem solid rgba(255, 255, 255, 0.4);
@@ -28,4 +28,13 @@
 
   hr{
     width: 50%
+  }
+
+  .detail__back {
+    margin-left: 33rem;
+    margin-bottom: 1rem;
+    border-radius: 1.5rem;
+  }
+  .icon-back {
+    margin-right: 0.5rem;
   }

@@ -1,0 +1,99 @@
+.newP {
+  width: 80%;
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0.2rem 0.2rem 1rem rgba(20, 20, 20, 0.8);
+  margin: 3.5rem auto;
+}
+
+.player-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.label-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
+}
+
+.newPlayer-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input.input-box,
+textarea {
+  background: white !important;
+  color: black;
+  border-radius: 15px;
+  border-color: white;
+  margin-left: 15px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  vertical-align: text-bottom;
+}
+
+.newPlayer-form label {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.newPlayer-form div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.newPlayer-form input {
+  padding: 0.5rem;
+}
+
+.newPlayer-form input,
+.newPlayer-form textarea {
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  margin-bottom: 30px;
+  outline: none;
+  transition: 0.4s border;
+}
+
+.newPlayer-form textarea:hover,
+.newPlayer-form textarea:focus,
+.newPlayer-form textarea:hover,
+.newPlayer-form textarea:focus {
+  border: 1px dashed black;
+}
+
+
+.newPlayer-submit-btn {
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+
+.detail__back {
+  margin-left: 33rem;
+  margin-bottom: 1rem;
+  border-radius: 1.5rem;
+}
+.icon-back {
+  margin-right: 0.5rem;
+}
+
+.click-here {
+  text-decoration: none;
+  color: black;
+}

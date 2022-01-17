@@ -1,46 +1,38 @@
 const initialState = {
-  allRecipes: [],
-  allDiets: [],
-  searchedRecipes: [],
-  recipeDetail: {},
-  addRecipe: {},
+  allPlayers: [],
+  searchedPlayer: [],
+  addPlayer: {},
+  filterByStatus: [],
+  updatedPlayer: [],
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_ALL_RECIPES":
+    case "GET_ALL_PLAYERS":
       return {
         ...state,
-        allRecipes: action.payload,
+        allPlayers: action.payload,
       };
-    case "SEARCH_RECIPES":
+    case "SEARCH_PLAYER":
       return {
         ...state,
-        searchedRecipes: action.payload,
+        searchedPlayer: action.payload,
       };
-    case "GET_RECIPE_DETAIL":
+    case "FILTER_PLAYER_BY_STATUS":
+       return {
+        ...state,
+        filterByStatus: action.payload,
+      };
+      case "ADD_PLAYER":
       return {
         ...state,
-        recipeDetail: action.payload,
+        addPlayer: action.payload,
       };
-    case "ADD_RECIPE":
+    case "UPDATE_DATA_PLAYER":
       return {
         ...state,
-        addRecipe: action.payload,
+        updatedPlayer: action.payload,
       };
-
-    case "GET_ALL_DIETS":
-      return {
-        ...state,
-        allDiets: action.payload,
-      };
-      case "FILTER_BY_DIET":
-        const recipes = state.allRecipes
-        const filteredDiet = action.payload === "All" ? recipes : recipes.filter( e => e.diets.includes(action.payload))
-        return{
-            ...state,
-            allRecipes: filteredDiet
-        };
 
     default:
       return state;

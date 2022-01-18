@@ -1,24 +1,52 @@
-
 html {
   font-size: 14px;
 }
 
 body {
- 
   text-align: center;
   margin: 0;
-  font-family: 'Spartan', Arial, Helvetica, sans-serif;
+  font-family: "Spartan", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url('./img/super-mario-bros.jpg')  
-  no-repeat center center fixed;
+  background: url("./img/super-mario-bros.jpg") no-repeat center center fixed;
   background-size: cover; /* define cómo se va a mostrar la imagen a establecer en el fondo; */
-  
- 
-
-} 
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media screen and (min-width: 640px) {
+  .select__form,
+  .form {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .select__form,
+  .form {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .detail__back {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .detail__back {
+    margin-left: 0.3rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .about-ctn {
+    height: 100%;
+  }
 }

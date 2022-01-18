@@ -21,6 +21,7 @@ function CreatePlayer(props) {
     e.preventDefault();
     dispatch(addPlayer(form));
     dispatch(getAllPlayers());
+    setForm("");
     alert("Player Created Successfully");
   }
 
@@ -45,6 +46,7 @@ function CreatePlayer(props) {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
+
     });
     setErrors(
       validate({
@@ -68,17 +70,6 @@ function CreatePlayer(props) {
           />
           {errors.name && <p className="danger">{errors.name}</p>}
 
-          <label className="label-title">Ranking:</label>
-          <input
-            className="input-box"
-            type="number"
-            min="0"
-            max="1000"
-            name="ranking"
-            value={props.ranking}
-            onChange={(e) => setForm({ ...form, Ranking: e.target.value })}
-          />
-
           <label className="label-title">Status:</label>
           <textarea
             className="input-box"
@@ -88,6 +79,16 @@ function CreatePlayer(props) {
           />
           {errors.status && <p className="danger">{errors.status}</p>}
 
+          <label className="label-title">Ranking:</label>
+          <input
+            className="input-box"
+            type="number"
+            min="0"
+            max="1000"
+            name="ranking"
+            value={props.ranking}
+            onChange={handleInputChange}
+          />
           <label className="label-title">Avatar:</label>
           <textarea
             className="input-box"

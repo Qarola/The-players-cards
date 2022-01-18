@@ -14,8 +14,19 @@
     ReactJS, Redux, CSS
 ```
 
+```
+This web app:
+    - Search by exact player name or name matching.
+    - Players' cards are ordered from highest to lowest ranking.
+    - Filter by player status.
+    - Add a new player.
+```
+
 `Hover Effect on cards`
 ![hover-card](https://user-images.githubusercontent.com/67078790/149646209-108f4d45-11c7-4fbb-b62c-13a352467a28.png)
+
+`Filter by status`
+![filter-by-status](https://user-images.githubusercontent.com/67078790/149854772-f16f8342-55dc-43d2-92b2-a1ff1a694d29.png)
 
 
 `Add a player`

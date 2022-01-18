@@ -15,6 +15,7 @@
 ```
 
 ```
+This web app:
     - Search by exact player name or name matching.
     - Players' cards are ordered from highest to lowest ranking.
     - Filter by player status.

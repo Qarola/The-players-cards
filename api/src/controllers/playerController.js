@@ -1,6 +1,7 @@
 const { Player } = require("../db");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
+
 //const servicePlayer = require('../services/player');
 
 const getAllPlayers = async (req, res) => {
@@ -83,10 +84,8 @@ const getPlayerByStatus = async (req, res) => {
 //Add a palyer to DB...
 const addPlayer = async (req, res) => {
     try {
-  //const { id, name, status, ranking, avatar } = req.body;
-  //const newPlayer = { id, name, status, ranking, avatar };
-  const player = await Player.create(...req.body);
- return res.send(player);
+  const player = await Player.create(req.body);
+  res.status(200).json({ success: true })
 
     }
     catch (error) {
